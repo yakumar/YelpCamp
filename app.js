@@ -9,6 +9,7 @@ var express     = require("express"),
     methodOverride = require("method-override"),
     User            = require("./models/user"),
     passportLocalMongoose = require("passport-local-mongoose"),
+    expressSession = require("express-session"),
     seedDB      = require("./seeds");
     
     
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 //seedDB();
 
-app.use(require("express-session")({
+app.use(expressSession({
     secret: "welcome mama",
     resave: false,
     saveUninitialized: false
